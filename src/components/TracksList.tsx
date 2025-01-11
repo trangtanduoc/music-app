@@ -1,13 +1,22 @@
-import library from '@/assets/data/library.json'
-import { FlatList, FlatListProps } from 'react-native'
+import { utilsStyles } from '@/styles'
+import { FlatList, FlatListProps, View } from 'react-native'
 import { TrackListItem } from './TracksListItem'
 
-export type TracksListProps = Partial<FlatListProps<unknown>>
+export type TracksListProps = Partial<FlatListProps<unknown>> & {
+	tracks: any[]
+}
 
-export const TracksList = ({ ...flatlistProps }: TracksListProps) => {
+const ItemDivider = () => (
+	<View style={{ ...utilsStyles.itemSeparator, marginLeft: 80, marginVertical: 12 }} />
+)
+
+export const TracksList = ({ tracks, ...flatlistProps }: TracksListProps) => {
 	return (
 		<FlatList
-			data={library}
+			data={tracks}
+			contentContainerStyle={{ paddingTop: 10, paddingBottom: 100 }}
+			ListFooterComponent={ItemDivider}
+			ItemSeparatorComponent={ItemDivider}
 			renderItem={({ item: track }) => (
 				<TrackListItem
 					track={{
@@ -16,6 +25,8 @@ export const TracksList = ({ ...flatlistProps }: TracksListProps) => {
 					}}
 				/>
 			)}
+			showsVerticalScrollIndicator={true}
+			showsHorizontalScrollIndicator={false}
 			{...flatlistProps}
 		/>
 	)

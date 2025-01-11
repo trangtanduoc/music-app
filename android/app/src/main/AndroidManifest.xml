@@ -26,6 +26,7 @@
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="music-app"/>
         <data android:scheme="com.anonymous.musicapp"/>
+        <data android:scheme="exp+music-app"/>
       </intent-filter>
     </activity>
   </application>

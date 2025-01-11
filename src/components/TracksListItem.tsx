@@ -51,25 +51,25 @@ export const TrackListItem = ({ track }: TrackListItemProps) => {
 const styles = StyleSheet.create({
 	trackItemContainer: {
 		flexDirection: 'row',
-		columnGap: 14,
+		columnGap: 20,
 		alignItems: 'center',
 		paddingRight: 20,
 	},
 	trackArtworkImage: {
 		borderRadius: 8,
-		width: 50,
-		height: 50,
+		width: 80,
+		height: 80,
 	},
 	trackTitleText: {
 		...defaultStyles.text,
-		fontSize: fontSize.sm,
+		fontSize: fontSize.lg,
 		fontWeight: '600',
 		maxWidth: '90%',
 	},
 	trackArtistText: {
 		...defaultStyles.text,
 		color: colors.textMuted,
-		fontSize: 14,
+		fontSize: fontSize.sm,
 		marginTop: 4,
 	},
 })
