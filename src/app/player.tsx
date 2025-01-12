@@ -6,6 +6,7 @@ import { PlayerVolumeBar } from '@/components/PlayerVolumeBar'
 import { unknownTrackImageUri } from '@/constants/images'
 import { colors, fontSize, screenPadding } from '@/constants/tokens'
 import { usePlayerBackground } from '@/hooks/usePlayerBackground'
+import { useTrackPlayerFavorite } from '@/hooks/useTrackPlayerFavorite'
 import { defaultStyles, utilsStyles } from '@/styles'
 import { FontAwesome } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -20,7 +21,7 @@ const PlayerScreen = () => {
 
 	const { top, bottom } = useSafeAreaInsets()
 
-	const isFavorite = false
+	const { isFavorite, toggleFavorite } = useTrackPlayerFavorite()
 
 	if (!activeTrack) {
 		return (
@@ -38,7 +39,7 @@ const PlayerScreen = () => {
 					? imageColors.platform === 'ios'
 						? [imageColors.background, imageColors.primary]
 						: [imageColors.dominant || colors.background, imageColors.vibrant || colors.background]
-					: [colors.background]
+					: [colors.background, colors.background]
 			}
 		>
 			<View style={styles.overlayContainer}>
@@ -81,6 +82,7 @@ const PlayerScreen = () => {
 										size={20}
 										color={isFavorite ? colors.primary : colors.icon}
 										style={{ marginHorizontal: 14 }}
+										onPress={toggleFavorite}
 									/>
 								</View>
 
