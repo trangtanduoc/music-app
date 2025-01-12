@@ -3,7 +3,7 @@ import { Platform } from 'react-native'
 import { colors } from './tokens'
 
 const headerStyleIos: NativeStackNavigationOptions = {
-	headerLargeTitle: true, // Dùng header lớn cho iOS
+	headerLargeTitle: true,
 	headerLargeStyle: {
 		backgroundColor: colors.background,
 	},
@@ -18,7 +18,7 @@ const headerStyleIos: NativeStackNavigationOptions = {
 
 const headerStyleAndroid: NativeStackNavigationOptions = {
 	headerTitleStyle: {
-		fontSize: 32, // Cỡ chữ lớn trên Android
+		fontSize: 32,
 		fontWeight: 'bold',
 		color: colors.text,
 	},
@@ -26,7 +26,7 @@ const headerStyleAndroid: NativeStackNavigationOptions = {
 		backgroundColor: colors.background,
 	},
 	headerTintColor: colors.text,
-	headerShadowVisible: false, // Tắt bóng trên Android
+	headerShadowVisible: false,
 }
 
 export const StackScreenWithSearchBar = (title: string): NativeStackNavigationOptions => {
